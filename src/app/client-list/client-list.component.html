@@ -1,0 +1,8 @@
+<p *ngIf="name">Loged in as {{ name }}</p>
+<ul>
+  <li *ngFor="let client of clientsList">
+    <a routerLink="/client/{{ client._id }}/{{ client.email }}">{{
+      client.email
+    }}</a>
+  </li>
+</ul>

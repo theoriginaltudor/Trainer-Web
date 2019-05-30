@@ -9,6 +9,7 @@ export class AuthService {
   private _idToken: string;
   private _accessToken: string;
   private _expiresAt: number;
+  public userProfile: any;
 
   auth0 = new auth0.WebAuth({
     clientID: "qXdL6vYlRC0LEzWwD323UvN3S8a7xnTt",
@@ -90,5 +91,19 @@ export class AuthService {
     // access token's expiry time
     const newDate = Date.now();
     return this._accessToken && newDate < this._expiresAt;
+  }
+
+  public getProfile(cb): void {
+    if (!this._accessToken) {
+      throw new Error("Access Token must exist to fetch profile");
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(this._accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
   }
 }

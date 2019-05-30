@@ -1,0 +1,32 @@
+<div>
+  <google-chart
+    #chart
+    [type]="type"
+    [data]="dietData.calories"
+    [columnNames]="columnNames.calories"
+    [options]="options"
+    [width]="width"
+    [height]="height"
+  >
+  </google-chart>
+  <google-chart
+    #chart
+    [type]="type"
+    [data]="dietData.protein"
+    [columnNames]="columnNames.protein"
+    [options]="options"
+    [width]="width"
+    [height]="height"
+  >
+  </google-chart>
+  <google-chart
+    #chart
+    [type]="type"
+    [data]="dietData.fat"
+    [columnNames]="columnNames.fat"
+    [options]="options"
+    [width]="width"
+    [height]="height"
+  >
+  </google-chart>
+</div>
