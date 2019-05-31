@@ -1,0 +1,28 @@
+<ngx-slick-carousel
+  class="carousel"
+  #slickModal="slick-carousel"
+  [config]="slideConfig"
+>
+  <div ngxSlickItem *ngFor="let entry of entriesList">
+    <ngx-slick-carousel
+      class="carousel"
+      #slickModal="slick-carousel"
+      [config]="slideConfig"
+    >
+      <div ngxSlickItem *ngFor="let photo of entry.photos">
+        <img src="{{ photo }}" alt="" width="50%" />
+        test
+      </div>
+    </ngx-slick-carousel>
+    <div *ngFor="let key of entry.keys">
+      <p *ngIf="key !== 'photos' && key !== '_id' && key !== 'clientId'">
+        {{ key }} :
+        {{
+          entry[key]["$numberDecimal"]
+            ? entry[key]["$numberDecimal"]
+            : entry[key]
+        }}
+      </p>
+    </div>
+  </div>
+</ngx-slick-carousel>
