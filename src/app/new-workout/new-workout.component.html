@@ -1,0 +1,15 @@
+<p>Name: <input type="text" [(ngModel)]="name" /></p>
+<div *ngFor="let exercise of exerciseNames; let i = index">
+  <p>{{ exercise }}</p>
+  <input type="text" [(ngModel)]="recomendationsList[i]" />
+</div>
+<button (click)="changeState()">Add new</button>
+<button (click)="saveWorkout()">Finish</button>
+<div *ngIf="adding" class="popUp">
+  <button (click)="changeState()">Add</button>
+  <ul>
+    <li *ngFor="let exercise of allExercises" (click)="addToWorkout(exercise)">
+      {{ exercise.name }}
+    </li>
+  </ul>
+</div>

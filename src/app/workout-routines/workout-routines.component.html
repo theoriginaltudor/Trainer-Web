@@ -1,3 +1,4 @@
 <div *ngFor="let workout of workoutsList">
   <app-workout-cell [value]="workout"></app-workout-cell>
 </div>
+<a routerLink="/new-workout/{{ id }}">Add new</a>

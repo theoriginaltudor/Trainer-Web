@@ -9,9 +9,11 @@ import { MeasurementsComponent } from './measurements/measurements.component';
 import { WorkoutHistoryComponent } from './workout-history/workout-history.component';
 import { ExerciseComponent } from './exercise/exercise.component';
 import { WorkoutRoutinesComponent } from './workout-routines/workout-routines.component';
+import { NewWorkoutComponent } from './new-workout/new-workout.component';
 
 const routes: Routes = [
   { path: "callback", component: CallbackComponent },
+  { path: "new-workout/:id", component: NewWorkoutComponent },
   { path: "diet/:id", component: DietComponent },
   { path: "measurements/:id", component: MeasurementsComponent },
   { path: "workout-history/:id", component: WorkoutHistoryComponent },

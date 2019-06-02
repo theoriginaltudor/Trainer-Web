@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { GoogleChartsModule } from 'angular-google-charts';
 import { HttpClientModule } from "@angular/common/http";
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -17,6 +18,7 @@ import { WorkoutHistoryComponent } from './workout-history/workout-history.compo
 import { ExerciseComponent } from './exercise/exercise.component';
 import { WorkoutRoutinesComponent } from './workout-routines/workout-routines.component';
 import { WorkoutCellComponent } from './workout-cell/workout-cell.component';
+import { NewWorkoutComponent } from './new-workout/new-workout.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,16 @@ import { WorkoutCellComponent } from './workout-cell/workout-cell.component';
     WorkoutHistoryComponent,
     ExerciseComponent,
     WorkoutRoutinesComponent,
-    WorkoutCellComponent
+    WorkoutCellComponent,
+    NewWorkoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     GoogleChartsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

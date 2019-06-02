@@ -14,7 +14,7 @@ interface IApiResponse {
 export class DataProviderService {
   API_URL: string = "http://localhost:2000/api";
 
-  constructor(public auth: AuthService, private http: HttpClient) {}
+  constructor(public auth: AuthService, private http: HttpClient) { }
 
   public getTrainer(trainerEmail): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(
@@ -109,10 +109,26 @@ export class DataProviderService {
     );
   }
 
+  /**
+   * addNewWorkout
+   */
+  public addNewWorkout(workout) {
+    return this.http.post<IApiResponse>(
+      `${this.API_URL}/create-workout`,
+      workout,
+      {
+        headers: new HttpHeaders().set(
+          "Authorization",
+          `Bearer ${this.auth.accessToken}`
+        )
+      }
+    )
+  }
+
   public getClientHistory(clientId, exerciseId): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(
       `${
-        this.API_URL
+      this.API_URL
       }/history-for-client/${clientId}/for-exercise/${exerciseId}`,
       {
         headers: new HttpHeaders().set(
