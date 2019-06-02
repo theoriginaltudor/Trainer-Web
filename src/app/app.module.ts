@@ -13,6 +13,8 @@ import { ClientListComponent } from "./client-list/client-list.component";
 import { ClientComponent } from "./client/client.component";
 import { DietComponent } from './diet/diet.component';
 import { MeasurementsComponent } from './measurements/measurements.component';
+import { WorkoutHistoryComponent } from './workout-history/workout-history.component';
+import { ExerciseComponent } from './exercise/exercise.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MeasurementsComponent } from './measurements/measurements.component';
     ClientListComponent,
     ClientComponent,
     DietComponent,
-    MeasurementsComponent
+    MeasurementsComponent,
+    WorkoutHistoryComponent,
+    ExerciseComponent
   ],
   imports: [
     BrowserModule,

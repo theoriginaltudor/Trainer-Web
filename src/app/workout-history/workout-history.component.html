@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let exercise of exercisesList">
+    <a routerLink="/exercise-history/{{ id }}/{{ exercise._id }}">{{
+      exercise.name
+    }}</a>
+  </li>
+</ul>
