@@ -15,6 +15,8 @@ import { DietComponent } from './diet/diet.component';
 import { MeasurementsComponent } from './measurements/measurements.component';
 import { WorkoutHistoryComponent } from './workout-history/workout-history.component';
 import { ExerciseComponent } from './exercise/exercise.component';
+import { WorkoutRoutinesComponent } from './workout-routines/workout-routines.component';
+import { WorkoutCellComponent } from './workout-cell/workout-cell.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ExerciseComponent } from './exercise/exercise.component';
     DietComponent,
     MeasurementsComponent,
     WorkoutHistoryComponent,
-    ExerciseComponent
+    ExerciseComponent,
+    WorkoutRoutinesComponent,
+    WorkoutCellComponent
   ],
   imports: [
     BrowserModule,

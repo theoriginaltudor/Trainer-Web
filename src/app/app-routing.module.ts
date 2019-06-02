@@ -8,6 +8,7 @@ import { DietComponent } from "./diet/diet.component";
 import { MeasurementsComponent } from './measurements/measurements.component';
 import { WorkoutHistoryComponent } from './workout-history/workout-history.component';
 import { ExerciseComponent } from './exercise/exercise.component';
+import { WorkoutRoutinesComponent } from './workout-routines/workout-routines.component';
 
 const routes: Routes = [
   { path: "callback", component: CallbackComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "measurements/:id", component: MeasurementsComponent },
   { path: "workout-history/:id", component: WorkoutHistoryComponent },
   { path: "exercise-history/:clientId/:exerciseId", component: ExerciseComponent },
+  { path: "workout-routines/:id", component: WorkoutRoutinesComponent },
   { path: "home", component: ClientListComponent },
   { path: "client/:id/:email", component: ClientComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
