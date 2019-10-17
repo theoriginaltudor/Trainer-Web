@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "workout-history/:id", component: WorkoutHistoryComponent },
   { path: "exercise-history/:clientId/:exerciseId", component: ExerciseComponent },
   { path: "workout-routines/:id", component: WorkoutRoutinesComponent },
-  { path: "home", component: ClientListComponent },
+  { path: "home/:email", component: ClientListComponent },
   { path: "client/:id/:email", component: ClientComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }

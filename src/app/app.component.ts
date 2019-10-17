@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { AuthService } from "./auth.service";
 
 @Component({
@@ -8,14 +9,19 @@ import { AuthService } from "./auth.service";
 })
 export class AppComponent implements OnInit {
   title = "Trainer-Web";
+  email: String;
 
-  constructor(private auth: AuthService) {
-    auth.handleAuthentication();
+  constructor(public router: Router, /*private auth: AuthService*/) {
+    // auth.handleAuthentication();
   }
 
   ngOnInit() {
-    if (this.auth.isAuthenticated()) {
-      this.auth.renewTokens();
-    }
+    // if (this.auth.isAuthenticated()) {
+    //   this.auth.renewTokens();
+    // }
   }
+
+  // login() {
+  //   this.router.navigate(["/home"]);
+  // }
 }

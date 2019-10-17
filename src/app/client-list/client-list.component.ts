@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../auth.service";
+import { ActivatedRoute } from "@angular/router";
 import { DataProviderService } from "../data-provider.service";
 
 @Component({
@@ -11,23 +12,27 @@ export class ClientListComponent implements OnInit {
   name: string;
   clientsList: any;
 
-  constructor(private auth: AuthService, private data: DataProviderService) {}
+  constructor(private route: ActivatedRoute, /*private auth: AuthService,*/ private data: DataProviderService) {}
 
   ngOnInit() {
-    this.setProfile();
+    // this.setProfile();
+    this.route.params.subscribe(params => {
+      this.name = params.email;
+      this.getTrainerId();
+    });
   }
 
-  private setProfile(): void {
-    if (this.auth.userProfile) {
-      this.name = this.auth.userProfile.name;
-      this.getTrainerId();
-    } else {
-      this.auth.getProfile((err, profile) => {
-        this.name = profile.name;
-        this.getTrainerId();
-      });
-    }
-  }
+  // private setProfile(): void {
+  //   if (this.auth.userProfile) {
+  //     this.name = this.auth.userProfile.name;
+  //     this.getTrainerId();
+  //   } else {
+  //     this.auth.getProfile((err, profile) => {
+  //       this.name = profile.name;
+  //       this.getTrainerId();
+  //     });
+  //   }
+  // }
   private getTrainerId(): void {
     const email = this.name;
     this.data.getTrainer(email).subscribe(response => {

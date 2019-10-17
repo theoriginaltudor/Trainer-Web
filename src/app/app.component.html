@@ -1,10 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+  <input type="text" [(ngModel)]="email">
+  <button routerLink="/home/{{email}}">Log in</button>
+  <!-- <button *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
     Log In
   </button>
   <button *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
     Log Out
-  </button>
+  </button> -->
 </div>
 <router-outlet></router-outlet>
