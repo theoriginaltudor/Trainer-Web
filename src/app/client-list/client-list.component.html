@@ -1,4 +1,5 @@
 <p *ngIf="name">Logged in as {{ name }}</p>
+<span>Search for client: </span>
 <input type="text" [(ngModel)] = "query">
 <ul>
   <li *ngFor="let client of clientsList | search:query">

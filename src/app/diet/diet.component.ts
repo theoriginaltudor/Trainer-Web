@@ -12,13 +12,13 @@ export class DietComponent implements OnInit {
   type = 'Line';
   dietData = {
     calories: [
-      ["2019-01-02T23:00:00.000Z", 1000],
+      [new Date(), 1000],
     ],
     protein: [
-      ["2019-01-02T23:00:00.000Z", 100],
+      [new Date(), 100],
     ],
     fat: [
-      ["2019-01-02T23:00:00.000Z", 10]
+      [new Date(), 10]
     ]
   };
   columnNames = {
@@ -45,14 +45,22 @@ export class DietComponent implements OnInit {
     const id = this.id;
     this.dataAPI.getDietsList(id).subscribe((response) => {
       console.log(response);
-      response.data.map(diet => {
+      response.data.map((diet, index) => {
         if (diet.date.includes("1999-12-31")) {
           return
         }
-        this.dietData.calories.push([diet.date, diet.calories])
-        this.dietData.protein.push([diet.date, diet.protein])
-        this.dietData.fat.push([diet.date, diet.fat])
+        if (index == 1) {
+          this.dietData.calories[0] = [new Date(diet.date), diet.calories];  
+          this.dietData.protein[0] = [new Date(diet.date), diet.protein];  
+          this.dietData.fat[0] = [new Date(diet.date), diet.fat];  
+        } else {
+          this.dietData.calories.push([new Date(diet.date), diet.calories])
+          this.dietData.protein.push([new Date(diet.date), diet.protein])
+          this.dietData.fat.push([new Date(diet.date), diet.fat])
+        }
       })
+      console.log(this.dietData);
+      
     })
   }
 }
