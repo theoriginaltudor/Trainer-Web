@@ -19,6 +19,8 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { WorkoutRoutinesComponent } from './workout-routines/workout-routines.component';
 import { WorkoutCellComponent } from './workout-cell/workout-cell.component';
 import { NewWorkoutComponent } from './new-workout/new-workout.component';
+import { LoginPage } from './login-page/login-page.component';
+import { NamePipe } from './client-list/name.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { NewWorkoutComponent } from './new-workout/new-workout.component';
     ExerciseComponent,
     WorkoutRoutinesComponent,
     WorkoutCellComponent,
-    NewWorkoutComponent
+    NewWorkoutComponent,
+    LoginPage,
+    NamePipe
   ],
   imports: [
     BrowserModule,

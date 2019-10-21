@@ -1,0 +1,5 @@
+<div>
+    <input type="text" [(ngModel)]="email" (ngModelChange)="getTrainerId()">
+    <p *ngIf="!trainerId && email">The email {{email}} is not a trainer.</p>
+    <button routerLink="/home/{{trainerId}}/{{email}}">Log in</button>
+</div>

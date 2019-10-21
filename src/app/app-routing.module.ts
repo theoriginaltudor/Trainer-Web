@@ -10,19 +10,21 @@ import { WorkoutHistoryComponent } from './workout-history/workout-history.compo
 import { ExerciseComponent } from './exercise/exercise.component';
 import { WorkoutRoutinesComponent } from './workout-routines/workout-routines.component';
 import { NewWorkoutComponent } from './new-workout/new-workout.component';
+import { LoginPage } from './login-page/login-page.component';
 
 const routes: Routes = [
-  { path: "callback", component: CallbackComponent },
+  // { path: "callback", component: CallbackComponent },
   { path: "new-workout/:id", component: NewWorkoutComponent },
   { path: "diet/:id", component: DietComponent },
   { path: "measurements/:id", component: MeasurementsComponent },
   { path: "workout-history/:id", component: WorkoutHistoryComponent },
   { path: "exercise-history/:clientId/:exerciseId", component: ExerciseComponent },
   { path: "workout-routines/:id", component: WorkoutRoutinesComponent },
-  { path: "home/:email", component: ClientListComponent },
+  { path: "login", component: LoginPage },
+  { path: "home/:trainerId/:email", component: ClientListComponent },
   { path: "client/:id/:email", component: ClientComponent },
-  { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "**", component: NotFoundComponent }
+  { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({
