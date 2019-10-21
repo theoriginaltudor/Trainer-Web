@@ -1,7 +1,7 @@
 <p *ngIf="name">Logged in as {{ name }}</p>
 <input type="text" [(ngModel)] = "query">
 <ul>
-  <li *ngFor="let client of clientsList | search:'email':query">
+  <li *ngFor="let client of clientsList | search:query">
     <a routerLink="/client/{{ client._id }}/{{ client.email }}">{{
       client.email
     }}</a>

@@ -5,9 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NamePipe implements PipeTransform {
 
-  transform(list, keys: string, term: string) {
-    if (!term) return list;
-    return (list || []).filter(item => keys.split(',').some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
+  transform(list, query: string) {
+    return list ? list.filter(item => item.email.search(new RegExp(query, 'i')) > -1) : [];
   }
 
 }
