@@ -9,7 +9,7 @@ import { DataProviderService } from '../data-provider.service';
 })
 export class DietComponent implements OnInit {
   id: string;
-  type = 'Line';
+  type = 'LineChart';
   dietData = {
     calories: [
       [new Date(), 1000],
@@ -26,9 +26,9 @@ export class DietComponent implements OnInit {
     protein: ['Time', 'Protein'],
     fat: ['Time', 'Fat']
   };
-  options = {
-    seriesType: 'line'
-  };
+  // options = {
+  //   seriesType: 'line'
+  // };
   width = 600;
   height = 400;
 
@@ -44,12 +44,12 @@ export class DietComponent implements OnInit {
   private populateCharts() {
     const id = this.id;
     this.dataAPI.getDietsList(id).subscribe((response) => {
-      console.log(response);
+      // console.log(response);
       response.data.map((diet, index) => {
         if (diet.date.includes("1999-12-31")) {
           return
         }
-        if (index == 1) {
+        if (index == 0) {
           this.dietData.calories[0] = [new Date(diet.date), diet.calories];  
           this.dietData.protein[0] = [new Date(diet.date), diet.protein];  
           this.dietData.fat[0] = [new Date(diet.date), diet.fat];  
@@ -59,7 +59,7 @@ export class DietComponent implements OnInit {
           this.dietData.fat.push([new Date(diet.date), diet.fat])
         }
       })
-      console.log(this.dietData);
+      // console.log(this.dietData);
       
     })
   }

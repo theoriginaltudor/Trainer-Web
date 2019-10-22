@@ -13,19 +13,19 @@ export class ExerciseComponent implements OnInit {
 
   exerciseData = {
     repetitions: [
-      ["2019-01-02T23:00:00.000Z", 1000],
+      [new Date(), 1000],
     ],
     kg: [
-      ["2019-01-02T23:00:00.000Z", 100],
+      [new Date(), 100],
     ]
   };
   columnNames = {
     repetitions: ['Time', 'Repetitions'],
     kg: ['Time', 'kg']
   };
-  options = {
-    seriesType: 'line'
-  };
+  // options = {
+  //   seriesType: 'line'
+  // };
 
   constructor(private route: ActivatedRoute, private data: DataProviderService) { }
 
@@ -41,9 +41,14 @@ export class ExerciseComponent implements OnInit {
   private populateChart() {
     this.data.getClientHistory(this.clientId, this.exerciseId).subscribe((response) => {
       console.log(response);
-      response.data.map((entry) => {
-        this.exerciseData.repetitions.push([entry.date, entry.repetitions]);
-        this.exerciseData.kg.push([entry.date, entry.kg["$numberDecimal"]]);
+      response.data.map((entry, index) => {
+        if (index == 0) {
+          this.exerciseData.repetitions[0] = [new Date(entry.date), entry.repetitions];
+          this.exerciseData.kg[0] = [new Date(entry.date), entry.kg["$numberDecimal"]];
+        } else {
+          this.exerciseData.repetitions.push([entry.date, entry.repetitions]);
+          this.exerciseData.kg.push([entry.date, entry.kg["$numberDecimal"]]);
+        }
       })
     })
   }
