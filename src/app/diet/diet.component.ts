@@ -59,7 +59,7 @@ export class DietComponent implements OnInit {
           this.dietData.fat.push([new Date(diet.date), diet.fat])
         }
       })
-      // console.log(this.dietData);
+      console.log(this.dietData);
       
     })
   }
