@@ -13,8 +13,8 @@ export class MeasurementsComponent implements OnInit {
   slideConfig = {
     "slidesToShow": 1,
     "slidesToScroll": 1,
-    "nextArrow": "<div >Next</div>",
-    "prevArrow": "<div >Prev</div>",
+    "nextArrow": "<div class='fa fa-chevron-right fa-2x' aria-hidden='true'></div>",
+    "prevArrow": "<div class='fa fa-chevron-left fa-2x' aria-hidden='true'></div>",
     "dots": true,
     "infinite": false
   };

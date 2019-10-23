@@ -3,14 +3,14 @@
   #slickModal="slick-carousel"
   [config]="slideConfig"
 >
-  <div ngxSlickItem *ngFor="let entry of entriesList">
+  <div ngxSlickItem class="slick_item" *ngFor="let entry of entriesList">
     <ngx-slick-carousel
       class="carousel"
       #slickModal="slick-carousel"
       [config]="slideConfig"
     >
       <div ngxSlickItem *ngFor="let photo of entry.photos">
-        <img src="{{ photo }}" alt="" width="50%" />
+        <img src="{{ photo }}" alt="" width="70%" />
         test
       </div>
     </ngx-slick-carousel>
